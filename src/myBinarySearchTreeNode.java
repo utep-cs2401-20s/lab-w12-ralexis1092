@@ -11,8 +11,6 @@ class myBinarySearchTreeNode{
   myBinarySearchTreeNode(int inValue){
 
     this.myValue = inValue;
-    this.left = null;
-    this.right = null;
 
   }
 
@@ -26,8 +24,6 @@ class myBinarySearchTreeNode{
   myBinarySearchTreeNode(int[] A){
 
     this.myValue = A[0];
-    this.left = null;
-    this.right = null;
     for(int i = 1; i < A.length; i++){
       insert(A[i]);
     }
@@ -130,6 +126,26 @@ class myBinarySearchTreeNode{
       return 1 + right;
     }
 
+  }
+
+  /**
+   * This method recursively calculates the number of nodes in the (sub)tree.
+   *
+   * @return the total number of nodes in the binary search tree
+   */
+  public int size(){
+    int left = 0;
+    int right = 0;
+    if(this.right == null && this.left == null){
+      return 1;
+    }
+    if(this.left != null){
+      left = this.left.size();
+    }
+    if(this.right != null){
+      right = this.right.size();
+    }
+    return 1 + left + right;
   }
 
   /**
