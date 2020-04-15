@@ -106,8 +106,30 @@ class myBinarySearchTreeNode{
    * @return the depth of the node of the value given
    */
   public int depth(int search){
+    if(search != myValue && this.left == null && this.right == null){
+      return -1;
+    }
+    //searches if the current value is my value
+    if(search == myValue){
+      return 0;
+    }
+    //goes to the left if the value is less than myValue
+    if(search < myValue){
+      int left = this.left.depth(search);
+      if(left == -1){
+        return -1;
+      }
+      return 1 + left;
+    }
+    //goes to the right if the value is greater than myValue
+    else{
+      int right = this.right.depth(search);
+      if(right == -1){
+        return -1;
+      }
+      return 1 + right;
+    }
 
-    return -1;
   }
 
   /**

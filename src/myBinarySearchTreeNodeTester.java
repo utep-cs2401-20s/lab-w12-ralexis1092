@@ -20,6 +20,7 @@ class myBinarySearchTreeNodeTester {
         int[] hello = {5,1,2,3,4,5,6,9,8,10};
         myBinarySearchTreeNode a = new myBinarySearchTreeNode(hello);
         a.print();
+        System.out.println(a.depth(4));
     }
 
     @org.junit.jupiter.api.Test
